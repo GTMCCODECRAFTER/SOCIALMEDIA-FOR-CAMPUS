@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Like functionality
+        document.querySelectorAll('.like-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var likeCount = parseInt(btn.nextElementSibling.innerText);
+                btn.classList.toggle('liked');
+                likeCount = btn.classList.contains('liked') ? likeCount + 1 : likeCount - 1;
+                btn.nextElementSibling.innerText = likeCount;
+            });
+        });
+
+        // Comment functionality
+        document.querySelectorAll('.comment-form').forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                var commentInput = form.querySelector('.comment-input');
+                var commentList = form.previousElementSibling;
+                var newComment = document.createElement('li');
+                newComment.innerText = commentInput.value;
+                commentList.appendChild(newComment);
+                commentInput.value = '';
+            });
+        });
+
+        // Save post functionality (assuming you have backend logic for saving)
+        document.querySelectorAll('.save-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                // Add logic to save the post on the backend
+                alert('Post saved!');
+            });
+        });
+    });
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collage Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #405de6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #profile-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #profile-info img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+
+        #posts article {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        #posts img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #posts p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #405de6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Collage Profile</h1>
+        <nav>
+            <ul>
+                <li><a href="posts.html">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="messaging.html">Messages</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Profile Info -->
+        <section id="profile-info">
+            <img src="img\c.jpeg" alt="Profile Picture">
+            <h2>COEP_Profiles</h2>
+            <p>Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Followers: 1000 | Following: 500</p>
+        </section>
+
+    <article>
+    <img src="img\2.jpeg" height="500" weight="600" alt="Post 1" ">
+
+    <p>Post Caption 1</p>
+    <ul>
+        <li class="like-btn">Like</li>
+        <li>Likes: <span>100</span></li>
+        <li>Comments:
+            <ul class="comment-list">
+                <li>Comment 1</li>
+                <li>Comment 2</li>
+            </ul>
+        </li>
+        <li>
+            <form class="comment-form">
+                <input type="text" class="comment-input" placeholder="Add a comment">
+                <button type="submit">Post</button>
+            </form>
+        </li>
+    </ul>
+    <p>Save <span class="save-btn">Post</span></p>
+</article>
+
+
+ <article>
+    <img src="img\3.jpeg" height="400" weight="600" alt="Post 2">
+    <p>Post Caption : The Master of Engineering (MEng) is a graduate degree you can pursue after earning your bachelor's degree in a related area.<br> It's designed to strengthen and expand upon the technical and practical skills you'll need to advance your engineering career. <br>
+With a Master of Engineering degree, you can develop more specialized knowledge, qualify for more advanced roles, and earn a higher salary. In fact, engineers<br> with a master's degree tend to make 12 percent more than engineers with a bachelor's degree [1]. During your master's program, you may also have an<br> opportunity to build a strong network with your faculty and peers, which can be a valuable resource.</p>
+    <ul>
+        <li class="like-btn">Like</li>
+        <li>Likes: <span>100</span></li>
+        <li>Comments:
+            <ul class="comment-list">
+                <li>Comment 1</li>
+                <li>Comment 2</li>
+            </ul>
+        </li>
+        <li>
+            <form class="comment-form">
+                <input type="text" class="comment-input" placeholder="Add a comment">
+                <button type="submit">Post</button>
+            </form>
+        </li>
+    </ul>
+    <p>Save <span class="save-btn">Post</span></p>
+</article>
+
+ <article>
+    <img src="img\4.jpeg" height="400" weight="600" alt="Post 3">
+    <p>Post Caption:The Technical Festival of  consists of a host of co-curricular events with all technical stuff for the geeks out there.<br> In these intercollegiate events students put their wits against one another, they explore, innovate, research and learn in a fun way! Cultural festival acts an an arena for students <br>where students from all branches across all semesters get together to manage a large cultural event. The real-world experience of managing variety <br>of events build management and extra curricular skills of the students.</p>
+    <ul>
+        <li class="like-btn">Like</li>
+        <li>Likes: <span>100</span></li>
+        <li>Comments:
+            <ul class="comment-list">
+                <li>Comment 1</li>
+                <li>Comment 2</li>
+            </ul>
+        </li>
+        <li>
+            <form class="comment-form">
+                <input type="text" class="comment-input" placeholder="Add a comment">
+                <button type="submit">Post</button>
+            </form>
+        </li>
+    </ul>
+    <p>Save <span class="save-btn">Post</span></p>
+</article>
+
+ <article>
+    <img src="img\1.jpeg"  height="300" weight="200" alt="Post 4">
+    <p>Post Caption: The nature of engineering education has changed dramatically. A generation ago, undergraduates attended lectures then studied on their own.<br> Today’s education focuses on project-based learning — hands-on research, design challenges, crossdisciplinary teamwork — activities that require different kinds of spaces.<br> The pandemic pushed us to chart new territory as we moved to remote instruction. Our faculty, staff and students rose to the challenge, as outstanding engineers do, <br>and adapted, iterated and innovated. Many of those innovations in education delivery will transform engineering education long beyond the pandemic; however,<br> the fundamental need for hands-on experiences remains.</p>
+    <ul>
+        <li class="like-btn">Like</li>
+        <li>Likes: <span>100</span></li>
+        <li>Comments:
+            <ul class="comment-list">
+                <li>Comment 1</li>
+                <li>Comment 2</li>
+            </ul>
+        </li>
+        <li>
+            <form class="comment-form">
+                <input type="text" class="comment-input" placeholder="Add a comment">
+                <button type="submit">Post</button>
+            </form>
+        </li>
+    </ul>
+    <p>Save <span class="save-btn">Post</span></p>
+</article>
+
+
+
+            <!-- Add more posts as needed -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CAMPUS SOCIAL MEDIA SGGS</p>
+    </footer>
+</body>
+</html>

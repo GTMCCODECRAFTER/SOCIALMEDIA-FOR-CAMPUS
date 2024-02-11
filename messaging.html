@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messaging Interface</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .message-container {
+        padding: 20px;
+        overflow-y: scroll;
+        max-height: 400px;
+    }
+
+    .message {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .message.sender {
+        background-color: #007bff;
+        color: #fff;
+        align-self: flex-end;
+    }
+
+    .message.receiver {
+        background-color: #f0f0f0;
+    }
+
+    .input-container {
+        display: flex;
+        padding: 10px;
+        background-color: #f9f9f9;
+    }
+
+    .input-container input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .input-container button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Messaging Interface</div>
+    <div class="message-container" id="message-container">
+        <!-- Messages will be dynamically added here -->
+    </div>
+    <div class="input-container">
+        <input type="text" id="message-input" placeholder="Type your message...">
+        <button id="send-btn">Send</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById('send-btn').addEventListener('click', function() {
+        sendMessage();
+    });
+
+    function sendMessage() {
+        var messageInput = document.getElementById('message-input');
+        var messageText = messageInput.value.trim();
+        if (messageText !== '') {
+            var messageContainer = document.getElementById('message-container');
+            var messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', 'sender');
+            messageDiv.textContent = messageText;
+            messageContainer.appendChild(messageDiv);
+            messageInput.value = '';
+            // Optional: Scroll to the bottom of the message container
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+            receiveMessage(); // Simulate receiving a message
+        }
+    }
+
+    function receiveMessage() {
+        var messageContainer = document.getElementById('message-container');
+        var messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'receiver');
+        messageDiv.textContent = 'This is a simulated received message.';
+        messageContainer.appendChild(messageDiv);
+        // Optional: Scroll to the bottom of the message container
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
+
+    // Simulate receiving a message every 5 seconds
+    setInterval(receiveMessage, 5000);
+</script>
+</body>
+</html>

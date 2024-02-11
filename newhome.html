@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .feature {
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h2 {
+            margin-top: 0;
+        }
+
+        .feature p {
+            margin-bottom: 0;
+        }
+
+        .login-container {
+            width: 30%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="file"],
+        button {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #aboutSection {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Welcome to Our SGGS </h1>
+</div>
+
+<div class="container">
+    <div id="aboutSection" class="feature" style="display: none;">
+        <h2>About</h2>
+        <p>Learn more about our college and its history.</p>
+    </div>
+    <div class="feature" onclick="showAbout()">
+        <h2><a href="C:\Users\Acer\Desktop\html new\aboutclg.html">About</a></h2>
+        <p>Learn more about our college and its history.</p>
+    </div>
+    <div class="feature">
+        <h2>Courses</h2>
+        <p>Explore the diverse range of courses we offer.</p>
+    </div>
+    <div class="feature">
+        <h2>Staff</h2>
+        <p>Meet our dedicated staff and faculty.</p>
+    </div>
+    <div class="feature">
+        <h2>Student Posts</h2>
+        <p>Share your experiences and posts with the college community.</p>
+        
+            </div>
+    <div class="feature">
+        <h2><a href="C:\Users\Acer\Desktop\html new\contact.html">Contact</a></h2>
+        <p>Get in touch with us for any queries or assistance.</p>
+    </div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" placeholder="College Gmail ID" name="collegeGmail" id="collegeGmail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" required>
+            <input type="file" id="collegeID" name="collegeID" accept="image/*" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 SGGS Collage ,Nanded. All rights reserved.</p>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        var emailField = document.getElementById('collegeGmail');
+        var email = emailField.value;
+
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address.');
+            event.preventDefault();
+        }
+    });
+
+    function isValidEmail(email) {
+        var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return regex.test(email);
+    }
+
+    function showAbout() {
+        var aboutSection = document.getElementById('aboutSection');
+        aboutSection.style.display = "block";
+    }
+</script>
+
+</body>
+</html>

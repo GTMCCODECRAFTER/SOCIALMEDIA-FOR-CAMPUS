@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Registeration form</title>
+    <link rel="stylesheet" href="registration.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration for student and faculty</div>
+    <div class="content">
+      <form action="register_dp.php" method="post" enctype="multipart/form-data">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" name="name" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" name="mail" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" name="pass" placeholder="Enter your password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" name="cp" placeholder="Confirm your password" required>
+          </div>
+        </div>
+
+
+        <div class="d-flex justify-content-center">
+        <div class="btn btn-primary btn-rounded">
+            <span class="details">Choose ID Card</span>
+            <input type="file" class="form-control d-none" name="img" />
+        </div>
+    </div><br>
+
+        <div class="gender-details">
+          <input type="radio" value="Student" name="ch" id="dot-1">
+          <input type="radio" value="Admin" name="ch" id="dot-2">
+          <span class="gender-title" ></span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender" >Student</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Admin</span>
+          </label>
+  
+        </div>
+        <div class="button">
+          <input type="submit" name="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
